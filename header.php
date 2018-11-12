@@ -17,27 +17,41 @@
 </head>
 <body <?php echo body_class(); ?>>
 
-  <!-- <header class="header">
-    <div class="menu">
-      <?php wp_nav_menu( array(
-        'theme_location'  => '',
-        'menu'            => 'mainmenu', 
-        'container'       => 'div', 
-        'container_class' => '', 
-        'container_id'    => '',
-        'menu_class'      => 'secondemenu_wrap', 
-        'menu_id'         => '',
-        'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
-        'before'          => '',
-        'after'           => '',
-        'link_before'     => '',
-        'link_after'      => '',
-        'items_wrap'      => '<div class="wrap-menu">%3$s</div>',
-        'depth'           => 0,
-        'walker'          => '',
-      )); ?>
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header__content">
+            <div class="menu">
+              <?php wp_nav_menu( array(
+                'theme_location'  => '',
+                'menu'            => 'mainmenu', 
+                'container'       => 'div', 
+                'container_class' => '', 
+                'container_id'    => '',
+                'menu_class'      => 'mainmenu_wrap', 
+                'menu_id'         => '',
+                'echo'            => true,
+                'fallback_cb'     => 'wp_page_menu',
+                'before'          => '',
+                'after'           => '',
+                'link_before'     => '',
+                'link_after'      => '',
+                'items_wrap'      => '<div class="wrap-menu">%3$s</div>',
+                'depth'           => 0,
+                'walker'          => '',
+              )); ?>
+            </div>
+            <div class="header__buttons">
+              <div class="header__buttons__sound">
+                <i class="fas fa-volume-up"></i>
+                <i class="fas fa-volume-off hidden"></i>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </header> -->
+  </header>
   
   <section id="content" role="main">

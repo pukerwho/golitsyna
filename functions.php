@@ -51,6 +51,9 @@ add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 function theme_name_scripts() {
     wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js');
+    wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js');
+    wp_enqueue_script( 'htmlmedia', get_template_directory_uri() . '/js/html5media.min.js');
+    wp_enqueue_script( 'plyr', get_template_directory_uri() . '/js/plyr.min.js');
     wp_register_script( 'loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array('jquery') );
     wp_register_script( 'myscripts', get_template_directory_uri() . '/js/scripts.js');
 
@@ -97,6 +100,98 @@ function loadmore_ajax_handler(){
 add_action('wp_ajax_loadmore', 'loadmore_ajax_handler'); 
 add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler'); 
 
+function create_post_type() {
+  register_post_type( 'photoalbums',
+    array(
+      'labels' => array(
+        'name' => __( 'Фотоальбомы' ),
+        'singular_name' => __( 'Фотоальбом' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'hierarchical' => true,
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    )
+  );
+  register_post_type( 'videos',
+    array(
+      'labels' => array(
+        'name' => __( 'Видео' ),
+        'singular_name' => __( 'Видео' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'hierarchical' => true,
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    )
+  );
+  register_post_type( 'afisha',
+    array(
+      'labels' => array(
+        'name' => __( 'Афиша' ),
+        'singular_name' => __( 'Афиша' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'hierarchical' => true,
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    )
+  );
+}
+add_action( 'init', 'create_post_type' );
+
+function your_prefix_get_meta_box( $meta_boxes ) {
+    $prefix = 'meta-';
+
+    $meta_boxes[] = array(
+        'id' => 'video-info',
+        'title' => esc_html__( 'Информация', 'videos-info' ),
+        'post_types' => array( 'videos' ),
+        'context' => 'advanced',
+        'priority' => 'default',
+        'autosave' => true,
+        'fields' => array(
+          array(
+            'id' => $prefix . 'video-iframe',
+            'type' => 'text',
+            'name' => esc_html__( 'Вставьте код', 'videos-info' ),
+          ),
+        ),
+    );
+
+    $meta_boxes[] = array(
+        'id' => 'afisha-info',
+        'title' => esc_html__( 'Информация', 'afisha-info' ),
+        'post_types' => array( 'afisha' ),
+        'context' => 'advanced',
+        'priority' => 'default',
+        'autosave' => true,
+        'fields' => array(
+          array(
+            'id' => $prefix . 'afisha-day',
+            'type' => 'text',
+            'name' => esc_html__( 'День', 'afisha-day' ),
+          ),
+          array(
+            'id' => $prefix . 'afisha-month',
+            'type' => 'text',
+            'name' => esc_html__( 'Месяц', 'afisha-month' ),
+          ),
+          array(
+            'id' => $prefix . 'afisha-year',
+            'type' => 'text',
+            'name' => esc_html__( 'Год', 'afisha-year' ),
+          ),
+          array(
+            'id' => $prefix . 'afisha-link',
+            'type' => 'text',
+            'name' => esc_html__( 'Ссылка', 'afisha-link' ),
+          ),
+        ),
+    );
+    return $meta_boxes;
+}
+add_filter( 'rwmb_meta_boxes', 'your_prefix_get_meta_box' );
 
 function add_theme_menu_item() {
     add_menu_page("Theme Settings", "Theme Settings", "manage_options", "theme-settings", "theme_settings_page", null, 99);

@@ -58,9 +58,12 @@ $(window).on('load resize', function(){
   vidRescale();
 });
 
-$('.hi span:first-of-type').on('click', function(){
+$('.header__buttons__sound').on('click', function(){
+  console.log('sound');
   $('#tv').toggleClass('mute');
-  $('.hi em:first-of-type').toggleClass('hidden');
+  $('.header__buttons__sound .fa-volume-up').toggleClass('hidden');
+  $('.header__buttons__sound .fa-volume-off').toggleClass('hidden');
+
   if($('#tv').hasClass('mute')){
     tv.mute();
   } else {
@@ -73,38 +76,139 @@ $('.hi span:last-of-type').on('click', function(){
   tv.pauseVideo();
 });
 
+//SWIPER
+if ($(document).width() > 960) {
+  var mySwiper = new Swiper ('.swiper-video', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-video-button-next',
+      prevEl: '.swiper-video-button-prev',
+    },
+  });
+};
 
-function CountDownTimer(date, id) {
-     var end = new Date(date);
-
-     var _second = 1000;
-     var _minute = _second * 60;
-     var _hour = _minute * 60;
-     var _day = _hour * 24;
-     var timer;
-
-     function showRemaining() {
-         var now = new Date();
-         var distance = end - now;
-         if (distance < 0) {
-
-             clearInterval(timer);
-             document.getElementById(id).innerHTML = 'EXPIRED!';
-
-             return;
-         }
-         var days = Math.floor(distance / _day);
-         var hours = Math.floor((distance % _day) / _hour);
-         var minutes = Math.floor((distance % _hour) / _minute);
-         var seconds = Math.floor((distance % _minute) / _second);
-
-         document.getElementById(id).innerHTML = days + ' дней ';
-         document.getElementById(id).innerHTML += hours + ' часов ';
-         document.getElementById(id).innerHTML += minutes + ' минут ';
-         document.getElementById(id).innerHTML += seconds + ' секунд';
-     }
-
-     timer = setInterval(showRemaining, 1000);
- }
-
- CountDownTimer('11/17/2018 2:30 PM', 'countdown');
+//AUDIO PLAYER
+var supportsAudio = !!document.createElement('audio').canPlayType;
+if (supportsAudio) {
+  // initialize plyr
+  var player = new Plyr('#audio1', {
+    controls: [
+      'restart',
+      'play',
+      'progress',
+      'current-time',
+      'duration',
+      'mute',
+      'volume'
+    ]
+  });
+  // initialize playlist and controls
+    var index = 0,
+        playing = false,
+        mediaPath = 'http://golitsyna.ru/content/mp3/2017/',
+        extension = '',
+        tracks = [{
+            "track": 1,
+            "name": "Катерина Голицына - Одна на миллион",
+            "duration": "4:21",
+            "file": "01"
+        }, {
+            "track": 2,
+            "name": "Катерина Голицына - Как ты там",
+            "duration": "3:32",
+            "file": "02"
+        }, {
+            "track": 3,
+            "name": "Катерина Голицына - Фамилия",
+            "duration": "3:32",
+            "file": "03"
+        }],
+        buildPlaylist = $(tracks).each(function(key, value) {
+            var trackNumber = value.track,
+                trackName = value.name,
+                trackDuration = value.duration;
+            if (trackNumber.toString().length === 1) {
+                trackNumber = '0' + trackNumber;
+            }
+            $('#plList').append('<li> \
+                <div class="plItem"> \
+                    <span class="plNum">' + trackNumber + '.</span> \
+                    <span class="plTitle">' + trackName + '</span> \
+                    <span class="plLength">' + trackDuration + '</span> \
+                </div> \
+            </li>');
+        }),
+        trackCount = tracks.length,
+        npAction = $('#npAction'),
+        npTitle = $('#npTitle'),
+        audio = $('#audio1').on('play', function () {
+            playing = true;
+            npAction.text('Сейчас играет...');
+        }).on('pause', function () {
+            playing = false;
+            npAction.text('Пауза...');
+        }).on('ended', function () {
+            npAction.text('Пауза...');
+            if ((index + 1) < trackCount) {
+                index++;
+                loadTrack(index);
+                audio.play();
+            } else {
+                audio.pause();
+                index = 0;
+                loadTrack(index);
+            }
+        }).get(0),
+        btnPrev = $('#btnPrev').on('click', function () {
+            if ((index - 1) > -1) {
+                index--;
+                loadTrack(index);
+                if (playing) {
+                    audio.play();
+                }
+            } else {
+                audio.pause();
+                index = 0;
+                loadTrack(index);
+            }
+        }),
+        btnNext = $('#btnNext').on('click', function () {
+            if ((index + 1) < trackCount) {
+                index++;
+                loadTrack(index);
+                if (playing) {
+                    audio.play();
+                }
+            } else {
+                audio.pause();
+                index = 0;
+                loadTrack(index);
+            }
+        }),
+        li = $('#plList li').on('click', function () {
+            var id = parseInt($(this).index());
+            if (id !== index) {
+                playTrack(id);
+            }
+        }),
+        loadTrack = function (id) {
+            $('.plSel').removeClass('plSel');
+            $('#plList li:eq(' + id + ')').addClass('plSel');
+            npTitle.text(tracks[id].name);
+            index = id;
+            audio.src = mediaPath + tracks[id].file + extension;
+        },
+        playTrack = function (id) {
+            loadTrack(id);
+            audio.play();
+        };
+    extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
+    loadTrack(index);
+} else {
+    // boo hoo
+    $('.column').addClass('hidden');
+    var noSupport = $('#audio1').text();
+    $('.container').append('<p class="no-support">' + noSupport + '</p>');
+}
