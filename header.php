@@ -13,6 +13,8 @@
 
     wp_head();
 	?>
+  <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
+
   <?php echo get_option('google_analytics'); ?>
 </head>
 <body <?php echo body_class(); ?>>
@@ -22,6 +24,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="header__content">
+            <div class="header__content__logo">
+              <a href="/" class="text-uppercase">Катерина<br>Голицына</a>
+            </div>
             <div class="menu">
               <?php wp_nav_menu( array(
                 'theme_location'  => '',
@@ -42,12 +47,12 @@
                 'walker'          => '',
               )); ?>
             </div>
-            <div class="header__buttons">
+            <!-- <div class="header__buttons">
               <div class="header__buttons__sound">
                 <i class="fas fa-volume-up"></i>
                 <i class="fas fa-volume-off hidden"></i>  
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

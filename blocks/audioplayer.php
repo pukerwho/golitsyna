@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row text-center mb-5">
     <div class="col-md-12">
-      <h2 class="text-uppercase font-italic font-weight-bold">Аудиозаписи</h2>
+      <div class="line"></div>
+      <h2 class="text-uppercase font-weight-bold my-5">Аудиозаписи</h2>
+      <div class="line"></div>
     </div>
   </div>
   <div class="column add-bottom">

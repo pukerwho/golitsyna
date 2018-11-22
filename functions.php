@@ -52,6 +52,7 @@ function theme_name_scripts() {
     wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js');
     wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js');
+    wp_enqueue_script( 'simplelightbox', get_template_directory_uri() . '/js/simplelightbox.min.js');
     wp_enqueue_script( 'htmlmedia', get_template_directory_uri() . '/js/html5media.min.js');
     wp_enqueue_script( 'plyr', get_template_directory_uri() . '/js/plyr.min.js');
     wp_register_script( 'loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array('jquery') );
@@ -125,6 +126,18 @@ function create_post_type() {
       'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
     )
   );
+  register_post_type( 'slider',
+    array(
+      'labels' => array(
+        'name' => __( 'Слайдер' ),
+        'singular_name' => __( 'Слайд' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'hierarchical' => true,
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    )
+  );
   register_post_type( 'afisha',
     array(
       'labels' => array(
@@ -144,6 +157,32 @@ function your_prefix_get_meta_box( $meta_boxes ) {
     $prefix = 'meta-';
 
     $meta_boxes[] = array(
+        'id' => 'slider-info',
+        'title' => esc_html__( 'Информация', 'slider-info' ),
+        'post_types' => array( 'slider' ),
+        'context' => 'advanced',
+        'priority' => 'default',
+        'autosave' => true,
+        'fields' => array(
+          array(
+            'id' => $prefix . 'slider-description',
+            'type' => 'text',
+            'name' => esc_html__( 'Описание', 'slider-info' ),
+          ),
+          array(
+            'id' => $prefix . 'slider-button',
+            'type' => 'text',
+            'name' => esc_html__( 'Название кнопки', 'slider-info' ),
+          ),
+          array(
+            'id' => $prefix . 'slider-button-link',
+            'type' => 'text',
+            'name' => esc_html__( 'Ссылка на кнопке', 'slider-info' ),
+          ),
+        ),
+    );
+
+    $meta_boxes[] = array(
         'id' => 'video-info',
         'title' => esc_html__( 'Информация', 'videos-info' ),
         'post_types' => array( 'videos' ),
@@ -155,6 +194,22 @@ function your_prefix_get_meta_box( $meta_boxes ) {
             'id' => $prefix . 'video-iframe',
             'type' => 'text',
             'name' => esc_html__( 'Вставьте код', 'videos-info' ),
+          ),
+        ),
+    );
+
+    $meta_boxes[] = array(
+        'id' => 'albums-info',
+        'title' => esc_html__( 'Информация', 'albums-info' ),
+        'post_types' => array( 'photoalbums' ),
+        'context' => 'advanced',
+        'priority' => 'default',
+        'autosave' => true,
+        'fields' => array(
+          array(
+            'id' => $prefix . 'images',
+            'type' => 'image_advanced',
+            'name' => esc_html__( 'Фото', 'albums-info' ),
           ),
         ),
     );
