@@ -154,13 +154,13 @@ if (supportsAudio) {
   // initialize playlist and controls
     var index = 0,
         playing = false,
-        mediaPath = 'http://golitsyna.ru/content/mp3/2017/',
+        mediaPath = 'https://golitsyna.timeto.top/',
         extension = '',
         tracks = [{
             "track": 1,
             "name": "Катерина Голицына - Одна на миллион",
             "duration": "4:21",
-            "file": "01"
+            "file": "song1"
         }, {
             "track": 2,
             "name": "Катерина Голицына - Как ты там",
@@ -176,15 +176,16 @@ if (supportsAudio) {
             var trackNumber = value.track,
                 trackName = value.name,
                 trackDuration = value.duration;
+                trackUrl = value.file;
             if (trackNumber.toString().length === 1) {
                 trackNumber = '0' + trackNumber;
             }
             $('#plList').append('<li> \
                 <div class="plItem"> \
+                    <span class="pldownload"><a href="' + mediaPath + trackUrl +'.mp3" download><i class="fas fa-download"></i></a></span> \
                     <span class="plNum">' + trackNumber + '.</span> \
                     <span class="plTitle">' + trackName + '</span> \
                     <span class="plLength">' + trackDuration + '</span> \
-                    <span class="pldownload"><a href="' + mediaPath + value.file '.mp3">Скачать</a></span> \
                 </div> \
             </li>');
         }),
