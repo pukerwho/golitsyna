@@ -17,34 +17,28 @@
 						<div class="photoalbum__title">
 							<?php the_title(); ?>
 						</div>
-						<div class="photoalbum__button">
+						<div class="photoalbum__button" data-number="<?php the_id(); ?>">
 							<p>
 								Смотреть больше
 							</p>
 						</div>
 					</div>
 				</div>
-<!-- fotorama.css & fotorama.js. -->
-<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
-
-<div class="photoalbum__gallery">
-	<div class="photoalbum__gallery__close">
-		<i class="far fa-times-circle"></i>
-	</div>
-	<div class="fotorama" data-nav="thumbs" data-width="100%" data-auto="false">
-	  <?php 
-			$images = rwmb_meta( 'meta-images', array( 'size' => 'full' ));
-			foreach ( $images as $image ) {
-			  echo '<img src="', $image['url'], '">';
-			} 
-		?>
-	  
-	</div>
-</div>
-<!-- 2. Add images to <div class="fotorama"></div>. -->
-
-
+				<div class="photoalbum__gallery" data-open="<?php the_id(); ?>">
+					<div class="photoalbum__gallery__close">
+						<i class="far fa-times-circle"></i>
+					</div>
+					<div class="photoalbum__bg-gallery"></div>
+					<div class="photoalbum__grid">
+						<?php 
+							$images = rwmb_meta( 'meta-images', array( 'size' => 'large' ) );
+							$title_img = get_the_title();
+							foreach ( $images as $image ) {
+							    echo '<div class="photoalbum__grid__item"><a href="', $image['full_url'], '" data-lightbox="image-1" data-title="', $title_img,'"><img src="', $image['url'], '"></a></div>';
+							} 
+						?>
+					</div>
+				</div>
 			</div>
 		<?php endwhile; endif; ?>
 	</div>

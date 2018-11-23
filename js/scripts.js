@@ -112,14 +112,18 @@
 //   tv.pauseVideo();
 // });
 
+// jQuery('.photoalbum__grid').appendTo(".ablums");
+
 $('.photoalbum__button').on('click', function(){
-    $('.photoalbum__gallery').addClass('photoalbum__gallery__show');
-    $('.fotorama').fotorama();
+    console.log($(this).attr("data-number") )
+    var dataNumber = $(this).attr("data-number");
+    $('.photoalbum__gallery[data-open=' + dataNumber + ']').addClass('photoalbum__gallery__show');
+    $('body').addClass('gallery-open');
 })
 
 $('.photoalbum__gallery__close').on('click', function(){
     $('.photoalbum__gallery').removeClass('photoalbum__gallery__show');
-
+    $('body').removeClass('gallery-open');
 })
 
 //SWIPER
@@ -128,7 +132,6 @@ if ($(document).width() > 960) {
     slidesPerView: 'auto',
     spaceBetween: 30,
     loop: true,
-    autoplay: true,
     navigation: {
       nextEl: '.swiper-slide-button-next',
       prevEl: '.swiper-slide-button-prev',
