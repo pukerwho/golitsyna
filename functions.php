@@ -59,10 +59,10 @@ function theme_name_scripts() {
     wp_register_script( 'myscripts', get_template_directory_uri() . '/js/scripts.js');
 
     wp_localize_script( 'loadmore', 'loadmore_params', array(
-        'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', 
-        'posts' => json_encode( $wp_query->query_vars ), 
+        'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
+        'posts' => json_encode( $custom_query_photoalbums->query_vars ), // everything about your loop is here
         'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-        'max_page' => $wp_query->max_num_pages
+        'max_page' => $custom_query_photoalbums->max_num_pages
     ) );
  
     wp_enqueue_script( 'loadmore' );
@@ -77,25 +77,26 @@ function load_custom_wp_admin_style() {
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
 function loadmore_ajax_handler(){
- 
-    // prepare our arguments for the query
-    $args = json_decode( stripslashes( $_POST['query'] ), true );
-    $args['paged'] = $_POST['page'] + 1; 
-    $args['post_status'] = 'publish';
- 
-   
-    query_posts( $args );
- 
-    if( have_posts() ) :
- 
-        
-        while( have_posts() ): the_post();
-            get_template_part( 'blocks/default/loop', 'default' );
-        
-        endwhile;
- 
-    endif;
-    die; 
+  // prepare our arguments for the query
+  $args = json_decode( stripslashes( $_POST['query'] ), true );
+  $args['paged'] = $_POST['page'] + 1; 
+  $args['post_status'] = 'publish';
+  $args['post_type'] = 'photoalbums';
+  query_posts( $args );
+  $custom_query_photoalbums = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4, 'paged' => $args['paged'], 'order' => 'ASC' ) );
+  if ($custom_query_photoalbums->have_posts()) : while ($custom_query_photoalbums->have_posts()) : $custom_query_photoalbums->the_post();
+    get_template_part( 'blocks/query/photoalbums', 'default' );
+  endwhile; 
+  endif;
+  die;
+
+  // if( have_posts() ) :
+
+  //   while( have_posts() ): the_post();
+  //     get_template_part( 'blocks/default/loop', 'default' );
+  //   endwhile;
+  // endif;
+  // die;
 }
 
 add_action('wp_ajax_loadmore', 'loadmore_ajax_handler'); 
@@ -119,6 +120,30 @@ function create_post_type() {
       'labels' => array(
         'name' => __( 'Видео' ),
         'singular_name' => __( 'Видео' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'hierarchical' => true,
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    )
+  );
+  register_post_type( 'disco',
+    array(
+      'labels' => array(
+        'name' => __( 'Диски' ),
+        'singular_name' => __( 'Диск' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'hierarchical' => true,
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    )
+  );
+  register_post_type( 'radio',
+    array(
+      'labels' => array(
+        'name' => __( 'Радио' ),
+        'singular_name' => __( 'Радио' )
       ),
       'public' => true,
       'has_archive' => true,
@@ -215,6 +240,32 @@ function your_prefix_get_meta_box( $meta_boxes ) {
     );
 
     $meta_boxes[] = array(
+        'id' => 'disco-info',
+        'title' => esc_html__( 'Информация', 'disco-info' ),
+        'post_types' => array( 'disco' ),
+        'context' => 'advanced',
+        'priority' => 'default',
+        'autosave' => true,
+        'fields' => array(
+          array(
+            'id' => $prefix . 'disco-year',
+            'type' => 'text',
+            'name' => esc_html__( 'Год выпуска', 'disco-info' ),
+          ),
+          array(
+            'id' => $prefix . 'disco-itunes-link',
+            'type' => 'text',
+            'name' => esc_html__( 'Ссылка на Itunes', 'disco-itunes-link' ),
+          ),
+          array(
+            'id' => $prefix . 'disco-playmarket-link',
+            'type' => 'text',
+            'name' => esc_html__( 'Ссылка на Play Market', 'disco-itunes-link' ),
+          ),
+        ),
+    );
+
+    $meta_boxes[] = array(
         'id' => 'afisha-info',
         'title' => esc_html__( 'Информация', 'afisha-info' ),
         'post_types' => array( 'afisha' ),
@@ -244,6 +295,22 @@ function your_prefix_get_meta_box( $meta_boxes ) {
           ),
         ),
     );
+
+    $meta_boxes[] = array(
+        'id' => 'radio-info',
+        'title' => esc_html__( 'Информация', 'radio-info' ),
+        'post_types' => array( 'radio' ),
+        'context' => 'advanced',
+        'priority' => 'default',
+        'autosave' => true,
+        'fields' => array(
+          array(
+            'id' => $prefix . 'radio-link',
+            'type' => 'text',
+            'name' => esc_html__( 'Ссылка', 'radio-info' ),
+          ),
+        ),
+    );
     return $meta_boxes;
 }
 add_filter( 'rwmb_meta_boxes', 'your_prefix_get_meta_box' );
@@ -257,6 +324,8 @@ function add_theme_menu_item() {
     register_setting( 'my-settings-group', 'pinterest_link' );
     register_setting( 'my-settings-group', 'google_analytics' );
     register_setting( 'my-settings-group', 'jivosite_code' );
+    register_setting( 'my-settings-group', 'biography_one' );
+    register_setting( 'my-settings-group', 'biography_two' );
 }
 
 add_action("admin_menu", "add_theme_menu_item");

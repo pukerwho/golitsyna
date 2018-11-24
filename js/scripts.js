@@ -112,8 +112,8 @@
 //   tv.pauseVideo();
 // });
 
-// jQuery('.photoalbum__grid').appendTo(".ablums");
 
+//Открываем фотоальбомы
 $('.photoalbum__button').on('click', function(){
     console.log($(this).attr("data-number") )
     var dataNumber = $(this).attr("data-number");
@@ -126,7 +126,15 @@ $('.photoalbum__gallery__close').on('click', function(){
     $('body').removeClass('gallery-open');
 })
 
-//SWIPER
+
+//Биография
+$('.biography__button').on('click', function(){
+    console.log('clickkkk');
+    $('.biography__two').addClass('biography__two__active');
+    $('.biography__button').addClass('biography__button__hidden')
+})
+
+//SWIPER SLIDER
 if ($(document).width() > 960) {
   var mySwiper = new Swiper ('.swiper-slide', {
     slidesPerView: 'auto',
@@ -135,6 +143,19 @@ if ($(document).width() > 960) {
     navigation: {
       nextEl: '.swiper-slide-button-next',
       prevEl: '.swiper-slide-button-prev',
+    },
+  });
+};
+
+//SWIPER VIDEO
+if ($(document).width() > 960) {
+  var mySwiperVideo = new Swiper ('.swiper-video', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-video-button-next',
+      prevEl: '.swiper-video-button-prev',
     },
   });
 };

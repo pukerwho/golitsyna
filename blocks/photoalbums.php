@@ -1,3 +1,4 @@
+<div class="photoalbums">
 <div class="container">
 	<div class="row text-center mb-5">
 		<div class="col-md-12">
@@ -8,9 +9,10 @@
 	</div>
 	<div class="row mb-5">
 		<?php 
-		  $custom_query = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4 ) );
-		  if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
-	  	<div class="col-md-3">
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		  $custom_query_photoalbums = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4, 'order' => 'ASC' ) );
+		  if ($custom_query_photoalbums->have_posts()) : while ($custom_query_photoalbums->have_posts()) : $custom_query_photoalbums->the_post(); ?>
+	  	<div class="col-md-3 mb-4">
 				<div class="photoalbum" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');">
 					<div class="photoalbum__bg"></div>
 					<div class="photoalbum-info">
@@ -45,10 +47,11 @@
 	<div class="row mb-5">
 		<div class="col-md-12">
 			<div class="morebutton">
-				<div class="morebutton__inner">
+				<div class="morebutton__inner loadmore">
 					Больше фотоальбомов	
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>

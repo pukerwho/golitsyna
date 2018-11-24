@@ -38,25 +38,23 @@ Template Name: Главная
 	</div>
 </div> -->
 
-<div class="my-5">
+<div class="my-5 pb-5">
 	<?php get_template_part( 'blocks/audioplayer', 'default' ); ?>	
 </div>
-
-<div class="my-5">
+<div class="my-5 pb-5">
 	<?php get_template_part( 'blocks/photoalbums', 'default' ); ?>	
 </div>
-
-<div class="my-5">
+<div class="my-5 pb-5">
 	<?php get_template_part( 'blocks/video', 'default' ); ?>	
-</div>
-<div class="my-5">
-	<?php get_template_part( 'blocks/afisha', 'default' ); ?>	
 </div>
 <div class="mb-5 pb-5">
 	<?php get_template_part( 'blocks/disco', 'default' ); ?>	
 </div>
 <div class="mb-5 pb-5">
 	<?php get_template_part( 'blocks/bio', 'default' ); ?>	
+</div>
+<div class="my-5 pb-5">
+	<?php get_template_part( 'blocks/afisha', 'default' ); ?>	
 </div>
 <div class="mb-5 pb-5">
 	<?php get_template_part( 'blocks/radio', 'default' ); ?>	

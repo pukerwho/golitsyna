@@ -1,10 +1,12 @@
 <div class="afisha">
 	<div class="container">
 		<div class="row text-center mb-5">
-			<div class="col-md-12">
-				<h2 class="text-uppercase font-italic font-weight-bold">Афиша</h2>
-			</div>
-		</div>
+    <div class="col-md-12">
+      <div class="line"></div>
+      <h2 class="text-uppercase font-weight-bold my-5">Афиша</h2>
+      <div class="line"></div>
+    </div>
+  </div>
 		<?php 
 		  $custom_query = new WP_Query( array( 'post_type' => 'afisha', 'posts_per_page' => 5 ) );
 		  if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
