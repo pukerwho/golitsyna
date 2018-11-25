@@ -8958,6 +8958,12 @@ a:hover {
 .relative {
   position: relative; }
 
+.pc-show {
+  display: block; }
+
+.mobile-show {
+  display: none; }
+
 h2 {
   position: relative;
   display: inline-block;
@@ -11658,5 +11664,41 @@ html.lb-disable-scrolling {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1; }
+
+@media (max-width: 760px) {
+  .pc-show {
+    display: none !important; }
+
+  .mobile-show {
+    display: block !important; }
+
+  .header__content-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 0.5rem 0rem; }
+
+  .slider__img {
+    display: none; }
+
+  .biography__one, .biography__two {
+    text-align: justify; }
+
+  .afisha .day__num span {
+    font-size: 3rem; }
+  .afisha .name p {
+    font-size: 1rem; }
+  .afisha .buy {
+    text-align: center; }
+    .afisha .buy span {
+      font-size: 1rem; }
+  .afisha .ticket > .d-flex {
+    margin-bottom: 1.5rem; }
+
+  .subscribe input {
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */
