@@ -218,7 +218,7 @@ function your_prefix_get_meta_box( $meta_boxes ) {
           array(
             'id' => $prefix . 'video-iframe',
             'type' => 'text',
-            'name' => esc_html__( 'Вставьте код', 'videos-info' ),
+            'name' => esc_html__( 'Вставьте код (например BwLS47LfJ9E)', 'videos-info' ),
           ),
         ),
     );
@@ -273,6 +273,16 @@ function your_prefix_get_meta_box( $meta_boxes ) {
         'priority' => 'default',
         'autosave' => true,
         'fields' => array(
+          array(
+            'id' => $prefix . 'afisha-place',
+            'type' => 'text',
+            'name' => esc_html__( 'Место проведения', 'afisha-day' ),
+          ),
+          array(
+            'id' => $prefix . 'afisha-city',
+            'type' => 'text',
+            'name' => esc_html__( 'Город', 'afisha-day' ),
+          ),
           array(
             'id' => $prefix . 'afisha-day',
             'type' => 'text',

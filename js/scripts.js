@@ -121,8 +121,23 @@ $('.photoalbum__button').on('click', function(){
     $('body').addClass('gallery-open');
 })
 
+//Закрываем фотоальбомы
 $('.photoalbum__gallery__close').on('click', function(){
     $('.photoalbum__gallery').removeClass('photoalbum__gallery__show');
+    $('body').removeClass('gallery-open');
+})
+
+//Открываем афишу
+$('.ticket .buy').on('click', function(){
+    console.log($(this).attr("data-number") )
+    var dataNumber = $(this).attr("data-number");
+    $('.ticket__info[data-open=' + dataNumber + ']').addClass('ticket__info__show');
+    $('body').addClass('gallery-open');
+})
+
+//Закрываем афишу
+$('.ticket__info__close').on('click', function(){
+    $('.ticket__info').removeClass('ticket__info__show');
     $('body').removeClass('gallery-open');
 })
 
