@@ -9203,6 +9203,8 @@ input, [type="submit"] {
         .header .menu-mainmenu-container .wrap-menu li a {
           color: #ffffff;
           text-transform: uppercase; }
+          .header .menu-mainmenu-container .wrap-menu li a:hover {
+            color: #ef0218; }
   .header .header__buttons {
     position: absolute;
     top: 0px;
@@ -11394,9 +11396,18 @@ audio {
   background-color: rgba(0, 0, 0, 0.1); }
 
 .pldownload {
-  padding: 0px 15px 0px 20px; }
+  padding: 0px 15px 0px 15px; }
   .pldownload a {
     color: #212529; }
+  .pldownload:hover a {
+    color: #3caffb; }
+
+.plyoutube {
+  padding: 0px 0px 0px 15px; }
+  .plyoutube a {
+    color: #212529; }
+  .plyoutube:hover a {
+    color: #ff0000; }
 
 .plItem {
   position: relative; }
@@ -11681,11 +11692,16 @@ html.lb-disable-scrolling {
     text-transform: uppercase;
     padding: 0.5rem 0rem; }
 
+  .slider__title {
+    font-size: 2rem; }
   .slider__img {
     display: none; }
 
   .biography__one, .biography__two {
     text-align: justify; }
+
+  .videos .swiper-container .swiper-slide {
+    width: 100%; }
 
   .afisha .day__num span {
     font-size: 3rem; }

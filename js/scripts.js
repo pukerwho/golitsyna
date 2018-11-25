@@ -113,6 +113,15 @@
 // });
 
 
+//Плавный скролл
+$(document).on('click', '.header a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+});
+
 //Открываем фотоальбомы
 $('.photoalbum__button').on('click', function(){
     console.log($(this).attr("data-number") )
@@ -162,10 +171,35 @@ if ($(document).width() > 960) {
   });
 };
 
+if ($(document).width() < 960) {
+  var mySwiper = new Swiper ('.swiper-slide', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-slide-button-next',
+      prevEl: '.swiper-slide-button-prev',
+    },
+  });
+};
+
 //SWIPER VIDEO
 if ($(document).width() > 960) {
   var mySwiperVideo = new Swiper ('.swiper-video', {
     slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-video-button-next',
+      prevEl: '.swiper-video-button-prev',
+    },
+  });
+};
+
+
+if ($(document).width() < 960) {
+  var mySwiper = new Swiper ('.swiper-video', {
+    slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
     navigation: {
@@ -197,17 +231,18 @@ if (supportsAudio) {
         extension = '',
         tracks = [{
             "track": 1,
-            "name": "Катерина Голицына - Одна на миллион",
+            "name": "Одна на миллион",
             "duration": "4:21",
-            "file": "song1"
+            "file": "song1",
+            "youtube": "https://youtube.com" 
         }, {
             "track": 2,
-            "name": "Катерина Голицына - Как ты там",
+            "name": "Как ты там",
             "duration": "3:32",
             "file": "02"
         }, {
             "track": 3,
-            "name": "Катерина Голицына - Фамилия",
+            "name": "Фамилия",
             "duration": "3:32",
             "file": "03"
         }],
@@ -216,11 +251,13 @@ if (supportsAudio) {
                 trackName = value.name,
                 trackDuration = value.duration;
                 trackUrl = value.file;
+                trackYoutube = value.youtube;
             if (trackNumber.toString().length === 1) {
                 trackNumber = '0' + trackNumber;
             }
             $('#plList').append('<li> \
                 <div class="plItem"> \
+                    <span class="plyoutube"><a href="' + trackYoutube +'" target="_blank"><i class="fab fa-youtube"></i></a></span> \
                     <span class="pldownload"><a href="' + mediaPath + trackUrl +'.mp3" download><i class="fas fa-download"></i></a></span> \
                     <span class="plNum">' + trackNumber + '.</span> \
                     <span class="plTitle">' + trackName + '</span> \
