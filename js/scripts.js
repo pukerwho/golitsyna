@@ -19,7 +19,7 @@ $(document).on('click', '.slider a[href^="#"]', function (event) {
 AOS.init();
 
 //Открываем фотоальбомы
-$('.photoalbum__button').on('click', function(event){
+$(document).on('click', '.photoalbum__button', function(event){
     console.log($(this).attr("data-number") )
     var dataNumber = $(this).attr("data-number");
     $('.photoalbum__gallery[data-open=' + dataNumber + ']').addClass('photoalbum__gallery__show');
@@ -27,7 +27,7 @@ $('.photoalbum__button').on('click', function(event){
 })
 
 //Закрываем фотоальбомы
-$('.photoalbum__gallery__close').on('click', function(event){
+$(document).on('click', '.photoalbum__gallery__close', function(event){
     $('.photoalbum__gallery').removeClass('photoalbum__gallery__show');
     $('body').removeClass('gallery-open');
 })
