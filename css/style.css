@@ -9175,6 +9175,8 @@ input, [type="submit"] {
       opacity: 1; }
 
 .header {
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 0.08rem;
   width: 100%;
   position: relative;
   top: 0;
@@ -9192,7 +9194,6 @@ input, [type="submit"] {
       .header__content__logo a {
         color: #ffffff; }
   .header .menu-mainmenu-container {
-    font-style: italic;
     padding: 15px 0px; }
     .header .menu-mainmenu-container .wrap-menu {
       display: flex; }

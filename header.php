@@ -13,6 +13,7 @@
 
     wp_head();
 	?>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
   <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
 
   <?php echo get_option('google_analytics'); ?>
@@ -26,7 +27,7 @@
           <div class="pc-show">
             <div class="header__content">
               <div class="header__content__logo">
-                <a href="/" class="text-uppercase">Катерина<br>Голицына</a>
+                <a href="/" class="text-uppercase">Катерина Голицына</a>
               </div>
               <div class="menu">
                 <?php wp_nav_menu( array(
