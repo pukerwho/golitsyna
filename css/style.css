@@ -8955,6 +8955,9 @@ li {
 a:hover {
   text-decoration: none; }
 
+#content {
+  padding-top: 70px; }
+
 .relative {
   position: relative; }
 
@@ -9178,11 +9181,13 @@ input, [type="submit"] {
   font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: 0.08rem;
   width: 100%;
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: #3d3838;
   z-index: 3; }
+  .header__fixed {
+    position: fixed; }
   .header__content {
     display: flex;
     justify-content: space-between;
@@ -9533,8 +9538,16 @@ input, [type="submit"] {
     background-position: 50% 50% !important;
     background-size: cover !important; }
   .disc__title {
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1.125rem;
     color: #3d3838; }
+
+.radio__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px; }
+  .radio__grid img {
+    width: 100%; }
 
 .biography__two {
   display: none; }
@@ -10226,7 +10239,7 @@ button.swiper-pagination-bullet {
   border: 2px solid transparent !important;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14) !important; }
 .swiper-container .swiper-slide {
-  height: calc(100vh - 76px); }
+  height: calc(100vh - 60px); }
 
 @keyframes plyr-progress {
   to {
@@ -12436,6 +12449,9 @@ html.lb-disable-scrolling {
       font-size: 1rem; }
   .afisha .ticket > .d-flex {
     margin-bottom: 1.5rem; }
+
+  .radio__grid {
+    grid-template-columns: repeat(2, 1fr); }
 
   .subscribe input {
     width: 100%; } }

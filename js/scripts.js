@@ -1,17 +1,19 @@
 //Плавный скролл
 $(document).on('click', '.header a[href^="#"]', function (event) {
     event.preventDefault();
-
+    var target = $($.attr(this, 'href'));
+    var targetScroll =  target.offset().top - 100
     $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top
+        scrollTop: targetScroll
     }, 500);
 });
 
 $(document).on('click', '.slider a[href^="#"]', function (event) {
     event.preventDefault();
-
+    var target = $($.attr(this, 'href'));
+    var targetScroll =  target.offset().top - 100
     $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top
+        scrollTop: targetScroll
     }, 500);
 });
 
