@@ -146,20 +146,38 @@ if (supportsAudio) {
         extension = '',
         tracks = [{
             "track": 1,
-            "name": "Одна на миллион",
-            "duration": "4:21",
-            "file": "song1",
-            "youtube": "https://youtube.com" 
+            "name": "Бессовестно счастливая",
+            "duration": "4:04",
+            "file": "bessovestno_schastlivaya",
+            "youtube": "https://www.youtube.com/watch?v=dKjgGiH00l4" 
         }, {
             "track": 2,
-            "name": "Как ты там",
-            "duration": "3:32",
-            "file": "02"
+            "name": "Чао, персик",
+            "duration": "3:37",
+            "file": "chao_persik"
         }, {
             "track": 3,
-            "name": "Фамилия",
-            "duration": "3:32",
-            "file": "03"
+            "name": "Такая, как есть",
+            "duration": "3:59",
+            "file": "takaya_kak_est"
+        }, {
+            "track": 4,
+            "name": "Любовь не бывает",
+            "duration": "3:51",
+            "file": "lubov_ne_bivaet",
+            "youtube": "https://www.youtube.com/watch?v=Zu1ZR6m8AWs" 
+        }, {
+            "track": 5,
+            "name": "Какая дама пропадает",
+            "duration": "4:27",
+            "file": "kakaya_dama_propadaet",
+            "youtube": "https://www.youtube.com/watch?v=J5w4XfAJe6U"
+        }, {
+            "track": 6,
+            "name": "В личном пространстве",
+            "duration": "3:59",
+            "file": "v_lichnom_prostranstve",
+            "youtube": "https://www.youtube.com/watch?v=SrjG_4XfVN0"
         }],
         buildPlaylist = $(tracks).each(function(key, value) {
             var trackNumber = value.track,
