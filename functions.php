@@ -117,7 +117,7 @@ function loadmore_ajax_handler_afisha(){
   $args['post_status'] = 'publish';
   $args['post_type'] = 'afisha';
   query_posts( $args );
-  $custom_query_afisha = new WP_Query( array( 'post_type' => 'afisha', 'posts_per_page' => 4, 'paged' => $args['paged'] ) );
+  $custom_query_afisha = new WP_Query( array( 'post_type' => 'afisha', 'posts_per_page' => 4, 'paged' => $args['paged'], 'orderby' => 'menu_order' ) );
   if ($custom_query_afisha->have_posts()) : while ($custom_query_afisha->have_posts()) : $custom_query_afisha->the_post();
     get_template_part( 'blocks/query/afisha', 'default' );
   endwhile; 
@@ -132,7 +132,7 @@ function loadmore_ajax_handler_disco(){
   $args['post_status'] = 'publish';
   $args['post_type'] = 'disco';
   query_posts( $args );
-  $custom_query_disco = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4, 'paged' => $args['paged'], 'order' => 'ASC' ) );
+  $custom_query_disco = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4, 'paged' => $args['paged'], 'orderby' => 'menu_order' ) );
   if ($custom_query_disco->have_posts()) : while ($custom_query_disco->have_posts()) : $custom_query_disco->the_post();
     get_template_part( 'blocks/query/disco', 'default' );
   endwhile; 

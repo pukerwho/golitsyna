@@ -9,7 +9,8 @@
 		</div>
 		<div class="row mb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1000">
 			<?php 
-			  $custom_query_disco = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4 ) );
+				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			  $custom_query_disco = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4, 'orderby' => 'menu_order' ) );
 			  if ($custom_query_disco->have_posts()) : while ($custom_query_disco->have_posts()) : $custom_query_disco->the_post(); ?>
 				<div class="col-md-3 mb-4">
 					<div class="disc">
