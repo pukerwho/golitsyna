@@ -18,7 +18,7 @@ jQuery(function($){
         if( data ) { 
           button.text( 'Загрузить еще' ).prev().before(data); // insert new posts          
           loadmore_params__disco.current_page++;
-          $('.disco .container .row:last-child').before(data);
+          $('.disco .container .row:nth-child(2)').append(data);
 
           if ( loadmore_params__disco.current_page == loadmore_params__disco.max_page ) 
             button.remove(); // if last page, remove the button

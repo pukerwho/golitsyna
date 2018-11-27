@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3 mb-4">
 	<div class="disc">
 		<div class="disc__img mb-4" style="background: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
 		<div class="disc__title text-uppercase font-weight-bold text-center mb-4">
