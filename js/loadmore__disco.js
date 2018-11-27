@@ -1,5 +1,5 @@
 jQuery(function($){
-  $('.loadmore__disco').click(function(){
+  $(document).on('click', '.loadmore__disco', function(event){
     var button = $(this),
         data = {
       'action': 'loadmore__disco',

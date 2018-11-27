@@ -47,7 +47,7 @@ $(document).on('click', '.photoalbum__gallery__close', function(event){
 })
 
 //Открываем афишу
-$('.ticket .buy').on('click', function(){
+$(document).on('click', '.ticket .buy', function(){
     console.log($(this).attr("data-number") )
     var dataNumber = $(this).attr("data-number");
     $('.ticket__info[data-open=' + dataNumber + ']').addClass('ticket__info__show');
@@ -55,7 +55,7 @@ $('.ticket .buy').on('click', function(){
 })
 
 //Закрываем афишу
-$('.ticket__info__close').on('click', function(){
+$(document).on('click', '.ticket__info__close', function(){
     $('.ticket__info').removeClass('ticket__info__show');
     $('body').removeClass('gallery-open');
 })

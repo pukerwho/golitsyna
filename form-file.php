@@ -8,6 +8,36 @@
   <table class="form-table">
 
     <tr valign="top">
+    <th scope="row">Facebook</th>
+    <td><input type="text" name="facebook_link" value="<?php echo esc_attr( get_option('facebook_link') ); ?>" /></td>
+    </tr>
+
+    <tr valign="top">
+    <th scope="row">Vk</th>
+    <td><input type="text" name="vk_link" value="<?php echo esc_attr( get_option('vk_link') ); ?>" /></td>
+    </tr>
+
+    <tr valign="top">
+    <th scope="row">Instagram</th>
+    <td><input type="text" name="instagram_link" value="<?php echo esc_attr( get_option('instagram_link') ); ?>" /></td>
+    </tr>
+
+    <tr valign="top">
+    <th scope="row">YouTube</th>
+    <td><input type="text" name="youtube_link" value="<?php echo esc_attr( get_option('youtube_link') ); ?>" /></td>
+    </tr>
+
+    <tr valign="top">
+    <th scope="row">Одноклассники</th>
+    <td><input type="text" name="odnoklasniki_link" value="<?php echo esc_attr( get_option('odnoklasniki_link') ); ?>" /></td>
+    </tr>
+
+    <tr valign="top">
+    <th scope="row">Whatsapp</th>
+    <td><input type="text" name="whatsapp_link" value="<?php echo esc_attr( get_option('whatsapp_link') ); ?>" /></td>
+    </tr>
+
+    <tr valign="top">
     <th scope="row">Код Google Analytics</th>
     <td><input type="text" name="google_analytics" value="<?php echo esc_attr( get_option('google_analytics') ); ?>" /></td>
     </tr>

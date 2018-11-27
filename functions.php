@@ -374,9 +374,12 @@ function add_theme_menu_item() {
     add_menu_page("Theme Settings", "Theme Settings", "manage_options", "theme-settings", "theme_settings_page", null, 99);
     //register our settings
     register_setting( 'my-settings-group', 'facebook_link' );
-    register_setting( 'my-settings-group', 'twitter_link' );
-    register_setting( 'my-settings-group', 'google_link' );
-    register_setting( 'my-settings-group', 'pinterest_link' );
+    register_setting( 'my-settings-group', 'vk_link' );
+    register_setting( 'my-settings-group', 'instagram_link' );
+    register_setting( 'my-settings-group', 'youtube_link' );
+    register_setting( 'my-settings-group', 'odnoklasniki_link' );
+    register_setting( 'my-settings-group', 'whatsapp_link' );
+
     register_setting( 'my-settings-group', 'google_analytics' );
     register_setting( 'my-settings-group', 'jivosite_code' );
     register_setting( 'my-settings-group', 'biography_one' );

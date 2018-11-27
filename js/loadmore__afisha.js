@@ -1,5 +1,5 @@
 jQuery(function($){
-  $('.loadmore__afisha').click(function(){
+  $(document).on('click', '.loadmore__afisha', function(event){
     console.log('afishs')
     var button = $(this),
         data = {
