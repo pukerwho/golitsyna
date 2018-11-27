@@ -1,4 +1,4 @@
-<div class="slider">
+<div class="slider" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">

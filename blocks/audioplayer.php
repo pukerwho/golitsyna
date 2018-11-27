@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row text-center mb-5">
+  <div class="row text-center mb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
     <div class="col-md-12">
       <div class="line"></div>
-      <h2 class="text-uppercase font-weight-bold my-5">Аудиозаписи</h2>
+      <h2 class="text-uppercase font-weight-bold my-5" >Аудиозаписи</h2>
       <div class="line"></div>
     </div>
   </div>
-  <div class="column add-bottom">
+  <div class="column add-bottom" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
     <div id="mainwrap">
       <div id="nowPlay">
         <span id="npAction">Пауза...</span><span id="npTitle"></span>

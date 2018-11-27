@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row text-center mb-5">
+  <div class="row text-center mb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
 		<div class="col-md-12">
 			<div class="line"></div>
 			<h2 class="text-uppercase font-weight-bold my-5">Заказать песню</h2>
 			<div class="line"></div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
 		<?php 
 		  $custom_query = new WP_Query( array( 'post_type' => 'radio') );
 		  if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>

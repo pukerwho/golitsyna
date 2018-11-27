@@ -55,6 +55,7 @@ function theme_name_scripts() {
     wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/lightbox.min.js');
     wp_enqueue_script( 'htmlmedia', get_template_directory_uri() . '/js/html5media.min.js');
     wp_enqueue_script( 'plyr', get_template_directory_uri() . '/js/plyr.min.js');
+    wp_enqueue_script( 'aos', get_template_directory_uri() . '/js/aos.js');
     wp_register_script( 'loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array('jquery') );
     wp_register_script( 'loadmore__afisha', get_stylesheet_directory_uri() . '/js/loadmore__afisha.js', array('jquery') );
     wp_register_script( 'loadmore__disco', get_stylesheet_directory_uri() . '/js/loadmore__disco.js', array('jquery') );

@@ -1,13 +1,13 @@
 <div class="videos">
 	<div class="container">
-		<div class="row text-center mb-5">
+		<div class="row text-center mb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
 			<div class="col-md-12">
 				<div class="line"></div>
 				<h2 class="text-uppercase font-weight-bold my-5">Видео</h2>
 				<div class="line"></div>
 			</div>
 		</div>
-		<div class="row mb-5">
+		<div class="row mb-5" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
 			<div class="col-md-12">
 				<div class="swiper-container swiper-video">
 			    <div class="swiper-wrapper">
