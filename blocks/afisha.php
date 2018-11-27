@@ -69,7 +69,7 @@
 			<div class="col-md-12">
 				<div class="morebutton">
 					<div class="morebutton__inner loadmore__afisha">
-						Полная афиша	
+						Загрузить еще	
 					</div>
 				</div>
 			</div>

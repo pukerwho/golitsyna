@@ -19,7 +19,7 @@ $(document).on('click', '.slider a[href^="#"]', function (event) {
 AOS.init();
 
 //Открываем фотоальбомы
-$('.photoalbum__button').on('click', function(){
+$('.photoalbum__button').on('click', function(event){
     console.log($(this).attr("data-number") )
     var dataNumber = $(this).attr("data-number");
     $('.photoalbum__gallery[data-open=' + dataNumber + ']').addClass('photoalbum__gallery__show');
@@ -27,7 +27,7 @@ $('.photoalbum__button').on('click', function(){
 })
 
 //Закрываем фотоальбомы
-$('.photoalbum__gallery__close').on('click', function(){
+$('.photoalbum__gallery__close').on('click', function(event){
     $('.photoalbum__gallery').removeClass('photoalbum__gallery__show');
     $('body').removeClass('gallery-open');
 })
@@ -60,6 +60,9 @@ if ($(document).width() > 960) {
     slidesPerView: 'auto',
     spaceBetween: 30,
     loop: true,
+    autoplay: {
+        delay: 4000,
+    },
     navigation: {
       nextEl: '.swiper-slide-button-next',
       prevEl: '.swiper-slide-button-prev',

@@ -1,5 +1,5 @@
 jQuery(function($){
-  $('.loadmore').click(function(){
+  $(document).on('click', '.loadmore', function(event){
  
     var button = $(this),
         data = {
