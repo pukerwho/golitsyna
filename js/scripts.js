@@ -17,6 +17,18 @@ $(document).on('click', '.slider a[href^="#"]', function (event) {
     }, 500);
 });
 
+//Меняем цвет шапки
+$(window).scroll(function(){
+  var h_scroll = $(this).scrollTop();
+  var header__height = $('header').height();
+  console.log(header__height);
+  if (h_scroll > header__height) {
+    $('.header').addClass('header__fixed')
+  } else {
+    $('.header').removeClass('header__fixed')
+  }
+})
+
 //АНИМАЦИЯ
 AOS.init();
 
@@ -63,7 +75,7 @@ if ($(document).width() > 960) {
     spaceBetween: 30,
     loop: true,
     autoplay: {
-        delay: 4000,
+        delay: 6000,
     },
     navigation: {
       nextEl: '.swiper-slide-button-next',
@@ -81,7 +93,7 @@ if ($(document).width() < 960) {
     slidesPerView: 'auto',
     loop: true,
     autoplay: {
-        delay: 5000,
+        delay: 6000,
     },
   });
 };

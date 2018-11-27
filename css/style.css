@@ -8990,7 +8990,11 @@ input, [type="submit"] {
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    padding: 20px 35px; }
+    padding: 20px 35px;
+    transition: all 0.4s; }
+  .morebutton:hover .morebutton__inner {
+    background-color: #b20010;
+    transition: all 0.4s; }
 
 .buttons {
   display: table;
@@ -9185,9 +9189,11 @@ input, [type="submit"] {
   top: 0;
   left: 0;
   background-color: #3d3838;
-  z-index: 3; }
+  z-index: 3;
+  transition: all 0.4s; }
   .header__fixed {
-    position: fixed; }
+    background-color: rgba(61, 56, 56, 0.7);
+    transition: all 0.4s; }
   .header__content {
     display: flex;
     justify-content: space-between;
@@ -9294,7 +9300,7 @@ input, [type="submit"] {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     position: relative;
-    top: 50px;
+    top: 100px;
     bottom: 50px;
     background-color: #ffffff;
     z-index: 999;
@@ -9321,7 +9327,7 @@ input, [type="submit"] {
     z-index: 999; }
     .photoalbum__gallery__close {
       position: fixed;
-      top: 20px;
+      top: 90px;
       right: 20px;
       z-index: 999;
       cursor: pointer; }
@@ -9345,6 +9351,9 @@ input, [type="submit"] {
     opacity: 1;
     transform: translate3d(0, 50%, 0);
     transition: all 0.4s; }
+  .photoalbum:hover .photoalbum__img img {
+    transform: scale(1.05);
+    transition: all 0.4s; }
   .photoalbum__bg {
     position: absolute;
     top: 0;
@@ -9352,6 +9361,13 @@ input, [type="submit"] {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6); }
+  .photoalbum__img {
+    height: 100%; }
+    .photoalbum__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.4s; }
   .photoalbum__title {
     width: 100%;
     position: absolute;
@@ -9485,7 +9501,7 @@ input, [type="submit"] {
     max-width: 50%;
     width: auto;
     position: relative;
-    top: 50px;
+    top: 100px;
     bottom: 50px;
     background-color: #ffffff;
     z-index: 999;
@@ -9496,7 +9512,7 @@ input, [type="submit"] {
     z-index: 999; }
     .afisha .ticket__info__close {
       position: fixed;
-      top: 20px;
+      top: 90px;
       right: 20px;
       z-index: 999;
       cursor: pointer; }
@@ -9560,9 +9576,13 @@ input, [type="submit"] {
     background-color: #f30419;
     border-radius: 30px;
     cursor: pointer;
-    padding: 20px 35px; }
+    padding: 20px 35px;
+    transition: all 0.4s; }
   .biography__button__hidden {
     display: none; }
+.biography:hover span {
+  background-color: #b20010;
+  transition: all 0.4s; }
 
 .contact div.wpcf7 {
   width: 100%; }

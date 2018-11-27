@@ -13,7 +13,10 @@
 		  $custom_query_photoalbums = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4, 'orderby' => 'menu_order' ) );
 		  if ($custom_query_photoalbums->have_posts()) : while ($custom_query_photoalbums->have_posts()) : $custom_query_photoalbums->the_post(); ?>
 	  	<div class="col-md-3 mb-4">
-				<div class="photoalbum" data-aos="fade-right" data-aos-anchor-placement="center-bottom" data-aos-duration="1000" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');">
+				<div class="photoalbum" data-aos="fade-right" data-aos-anchor-placement="center-bottom" data-aos-duration="1000">
+					<div class="photoalbum__img">
+						<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+					</div>
 					<div class="photoalbum__bg"></div>
 					<div class="photoalbum-info">
 						<div class="photoalbum__title">
