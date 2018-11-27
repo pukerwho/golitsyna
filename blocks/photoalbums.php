@@ -10,7 +10,7 @@
 	<div class="row mb-5">
 		<?php 
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-		  $custom_query_photoalbums = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4, 'order' => 'ASC' ) );
+		  $custom_query_photoalbums = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4, 'orderby' => 'menu_order' ) );
 		  if ($custom_query_photoalbums->have_posts()) : while ($custom_query_photoalbums->have_posts()) : $custom_query_photoalbums->the_post(); ?>
 	  	<div class="col-md-3 mb-4">
 				<div class="photoalbum" style="background:url('<?php echo get_the_post_thumbnail_url(); ?>');">
@@ -36,7 +36,7 @@
 							$images = rwmb_meta( 'meta-images', array( 'size' => 'large' ) );
 							$title_img = get_the_title();
 							foreach ( $images as $image ) {
-							    echo '<div class="photoalbum__grid__item"><a href="', $image['full_url'], '" data-lightbox="image-1" data-title="', $title_img,'"><img src="', $image['url'], '"></a></div>';
+							    echo '<div class="photoalbum__grid__item"><a href="', $image['full_url'], '" data-lightbox="', $title_img,'" data-title="', $title_img,'"><img src="', $image['url'], '"></a></div>';
 							} 
 						?>
 					</div>

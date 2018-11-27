@@ -56,6 +56,8 @@ function theme_name_scripts() {
     wp_enqueue_script( 'htmlmedia', get_template_directory_uri() . '/js/html5media.min.js');
     wp_enqueue_script( 'plyr', get_template_directory_uri() . '/js/plyr.min.js');
     wp_register_script( 'loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array('jquery') );
+    wp_register_script( 'loadmore__afisha', get_stylesheet_directory_uri() . '/js/loadmore__afisha.js', array('jquery') );
+    wp_register_script( 'loadmore__disco', get_stylesheet_directory_uri() . '/js/loadmore__disco.js', array('jquery') );
     wp_register_script( 'myscripts', get_template_directory_uri() . '/js/scripts.js');
 
     wp_localize_script( 'loadmore', 'loadmore_params', array(
@@ -64,8 +66,24 @@ function theme_name_scripts() {
         'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
         'max_page' => $custom_query_photoalbums->max_num_pages
     ) );
+
+    wp_localize_script( 'loadmore__afisha', 'loadmore_params__afisha', array(
+        'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
+        'posts' => json_encode( $custom_query_afisha->query_vars ), // everything about your loop is here
+        'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+        'max_page' => $custom_query_afisha->max_num_pages
+    ) );
+
+    wp_localize_script( 'loadmore__disco', 'loadmore_params__disco', array(
+        'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
+        'posts' => json_encode( $custom_query_disco->query_vars ), // everything about your loop is here
+        'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+        'max_page' => $custom_query_disco->max_num_pages
+    ) );
  
     wp_enqueue_script( 'loadmore' );
+    wp_enqueue_script( 'loadmore__afisha' );
+    wp_enqueue_script( 'loadmore__disco' );
     wp_enqueue_script( 'myscripts' );
 };
 
@@ -89,18 +107,44 @@ function loadmore_ajax_handler(){
   endwhile; 
   endif;
   die;
-
-  // if( have_posts() ) :
-
-  //   while( have_posts() ): the_post();
-  //     get_template_part( 'blocks/default/loop', 'default' );
-  //   endwhile;
-  // endif;
-  // die;
 }
 
-add_action('wp_ajax_loadmore', 'loadmore_ajax_handler'); 
+function loadmore_ajax_handler_afisha(){
+  // prepare our arguments for the query
+  $args = json_decode( stripslashes( $_POST['query'] ), true );
+  $args['paged'] = $_POST['page'] + 1; 
+  $args['post_status'] = 'publish';
+  $args['post_type'] = 'afisha';
+  query_posts( $args );
+  $custom_query_afisha = new WP_Query( array( 'post_type' => 'afisha', 'posts_per_page' => 4, 'paged' => $args['paged'] ) );
+  if ($custom_query_afisha->have_posts()) : while ($custom_query_afisha->have_posts()) : $custom_query_afisha->the_post();
+    get_template_part( 'blocks/query/afisha', 'default' );
+  endwhile; 
+  endif;
+  die;
+}
+
+function loadmore_ajax_handler_disco(){
+  // prepare our arguments for the query
+  $args = json_decode( stripslashes( $_POST['query'] ), true );
+  $args['paged'] = $_POST['page'] + 1; 
+  $args['post_status'] = 'publish';
+  $args['post_type'] = 'disco';
+  query_posts( $args );
+  $custom_query_disco = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4, 'paged' => $args['paged'], 'order' => 'ASC' ) );
+  if ($custom_query_disco->have_posts()) : while ($custom_query_disco->have_posts()) : $custom_query_disco->the_post();
+    get_template_part( 'blocks/query/disco', 'default' );
+  endwhile; 
+  endif;
+  die;
+}
+
+add_action('wp_ajax_loadmore', 'loadmore_ajax_handler');  
 add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler'); 
+add_action('wp_ajax_loadmore__afisha', 'loadmore_ajax_handler_afisha');
+add_action('wp_ajax_nopriv_loadmore__afisha', 'loadmore_ajax_handler_afisha');
+add_action('wp_ajax_loadmore__disco', 'loadmore_ajax_handler_disco');
+add_action('wp_ajax_nopriv_loadmore__disco', 'loadmore_ajax_handler_disco');
 
 function create_post_type() {
   register_post_type( 'photoalbums',

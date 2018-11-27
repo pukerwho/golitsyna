@@ -11697,6 +11697,11 @@ html.lb-disable-scrolling {
   .slider__img {
     display: none; }
 
+  .photoalbum__grid {
+    grid-template-columns: repeat(3, 1fr); }
+    .photoalbum__grid__item {
+      height: 110px; }
+
   .biography__one, .biography__two {
     text-align: justify; }
 

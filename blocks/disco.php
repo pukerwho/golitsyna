@@ -8,8 +8,8 @@
 	</div>
 	<div class="row mb-5">
 		<?php 
-		  $custom_query = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4 ) );
-		  if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+		  $custom_query_disco = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4 ) );
+		  if ($custom_query_disco->have_posts()) : while ($custom_query_disco->have_posts()) : $custom_query_disco->the_post(); ?>
 			<div class="col-md-3">
 				<div class="disc">
 					<div class="disc__img mb-4" style="background: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
@@ -34,7 +34,7 @@
 	<div class="row mb-5">
 		<div class="col-md-12">
 			<div class="morebutton">
-				<div class="morebutton__inner">
+				<div class="morebutton__inner loadmore__disco">
 					Еще альбомы
 				</div>
 			</div>

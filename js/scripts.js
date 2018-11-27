@@ -122,6 +122,14 @@ $(document).on('click', '.header a[href^="#"]', function (event) {
     }, 500);
 });
 
+$(document).on('click', '.slider a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+});
+
 //Открываем фотоальбомы
 $('.photoalbum__button').on('click', function(){
     console.log($(this).attr("data-number") )
@@ -172,13 +180,15 @@ if ($(document).width() > 960) {
 };
 
 if ($(document).width() < 960) {
-  var mySwiper = new Swiper ('.swiper-slide', {
+  var mySwiperSlide = new Swiper ('.swiper-slide', {
+    pagination: {
+        el: '.swiper-slide-pagination',
+        clickable: true,
+    },
     slidesPerView: 'auto',
-    spaceBetween: 30,
     loop: true,
-    navigation: {
-      nextEl: '.swiper-slide-button-next',
-      prevEl: '.swiper-slide-button-prev',
+    autoplay: {
+        delay: 5000,
     },
   });
 };

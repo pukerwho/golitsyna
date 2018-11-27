@@ -8,8 +8,8 @@
     </div>
   </div>
 		<?php 
-		  $custom_query = new WP_Query( array( 'post_type' => 'afisha', 'posts_per_page' => 5 ) );
-		  if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+		  $custom_query_afisha = new WP_Query( array( 'post_type' => 'afisha', 'posts_per_page' => 4, 'orderby' => 'menu_order' ) );
+		  if ($custom_query_afisha->have_posts()) : while ($custom_query_afisha->have_posts()) : $custom_query_afisha->the_post(); ?>
 			<div class="row ticket mb-1">
 				<div class="col-md-9 d-flex align-items-center">
 					<div class="day">
@@ -68,7 +68,7 @@
 		<div class="row my-5">
 			<div class="col-md-12">
 				<div class="morebutton">
-					<div class="morebutton__inner">
+					<div class="morebutton__inner loadmore__afisha">
 						Полная афиша	
 					</div>
 				</div>

@@ -5,7 +5,7 @@
 				<div class="swiper-container swiper-slide">
 			    <div class="swiper-wrapper">
 			    	<?php 
-	          $custom_query = new WP_Query( array( 'post_type' => 'slider' ) );
+	          $custom_query = new WP_Query( array( 'post_type' => 'slider', 'orderby' => 'menu_order' ) );
 	          if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
 	          	<div class="swiper-slide d-flex align-items-center">
 	          		<div class="offset-md-1 col-md-6">
@@ -26,8 +26,13 @@
 	          	</div>
 	          <?php endwhile; endif; ?>
 			    </div>
-			    <div class="swiper-button-next swiper-slide-button-next"></div>
-	      	<div class="swiper-button-prev swiper-slide-button-prev"></div>
+			    <div class="mobile-show">
+			    	<div class="swiper-pagination swiper-slide-pagination"></div>	
+			    </div>
+			    <div class="pc-show">
+				    <div class="swiper-button-next swiper-slide-button-next"></div>
+		      	<div class="swiper-button-prev swiper-slide-button-prev"></div>	
+			    </div>
 			  </div>	
 			</div>
 		</div>
