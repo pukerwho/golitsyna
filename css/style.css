@@ -9681,6 +9681,13 @@ input, [type="submit"] {
   .radio__grid img {
     width: 100%; }
 
+#bio {
+  position: relative; }
+
+.biography__img img {
+  position: relative;
+  top: -90px;
+  width: 150%; }
 .biography__two {
   display: none; }
   .biography__two__active {

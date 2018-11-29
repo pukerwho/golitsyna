@@ -382,6 +382,7 @@ function add_theme_menu_item() {
 
     register_setting( 'my-settings-group', 'google_analytics' );
     register_setting( 'my-settings-group', 'jivosite_code' );
+    register_setting( 'my-settings-group', 'biography_img' );
     register_setting( 'my-settings-group', 'biography_one' );
     register_setting( 'my-settings-group', 'biography_two' );
 }

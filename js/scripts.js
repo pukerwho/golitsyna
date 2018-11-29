@@ -21,7 +21,6 @@ $(document).on('click', '.slider a[href^="#"]', function (event) {
 $(window).scroll(function(){
   var h_scroll = $(this).scrollTop();
   var header__height = $('header').height();
-  console.log(header__height);
   if (h_scroll > header__height) {
     $('.header').addClass('header__fixed')
   } else {
@@ -30,7 +29,9 @@ $(window).scroll(function(){
 })
 
 //АНИМАЦИЯ
-AOS.init();
+AOS.init({
+    disable: 'mobile'
+});
 
 //Открываем фотоальбомы
 $(document).on('click', '.photoalbum__button', function(event){
