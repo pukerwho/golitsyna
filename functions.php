@@ -102,7 +102,7 @@ function loadmore_ajax_handler(){
   $args['post_status'] = 'publish';
   $args['post_type'] = 'photoalbums';
   query_posts( $args );
-  $custom_query_photoalbums = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4, 'paged' => $args['paged'], 'order' => 'ASC' ) );
+  $custom_query_photoalbums = new WP_Query( array( 'post_type' => 'photoalbums', 'posts_per_page' => 4, 'paged' => $args['paged'], 'orderby' => 'menu_order' ) );
   if ($custom_query_photoalbums->have_posts()) : while ($custom_query_photoalbums->have_posts()) : $custom_query_photoalbums->the_post();
     get_template_part( 'blocks/query/photoalbums', 'default' );
   endwhile; 
