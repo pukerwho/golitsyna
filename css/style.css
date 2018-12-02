@@ -9682,7 +9682,8 @@ input, [type="submit"] {
     width: 100%; }
 
 #bio {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .biography__img img {
   position: relative;
