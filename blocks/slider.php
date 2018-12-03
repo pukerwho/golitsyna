@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="swiper-container swiper-slide">
+				<div class="swiper-container swiper-slide swiper-slide-mobile">
 			    <div class="swiper-wrapper">
 			    	<?php 
 	          $custom_query = new WP_Query( array( 'post_type' => 'slider', 'orderby' => 'menu_order' ) );

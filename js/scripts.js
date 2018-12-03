@@ -86,7 +86,7 @@ if ($(document).width() > 960) {
 };
 
 if ($(document).width() < 960) {
-  var mySwiperSlide = new Swiper ('.swiper-slide', {
+  var myMobileSwiperSlide = new Swiper ('.swiper-slide-mobile', {
     simulateTouch: true,
     slidesPerView: 'auto',
     loop: true,
