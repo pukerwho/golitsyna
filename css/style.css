@@ -12698,6 +12698,9 @@ html.lb-disable-scrolling {
   #listen .plItem {
     font-size: 4vw; }
   #listen .plLength {
-    display: none; } }
+    display: none; }
+  #listen .plLabel.newlabel {
+    display: table;
+    margin-top: 15px; } }
 
 /*# sourceMappingURL=style.css.map */
