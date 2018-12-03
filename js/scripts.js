@@ -87,7 +87,6 @@ if ($(document).width() > 960) {
 
 if ($(document).width() < 960) {
   var mySwiperSlide = new Swiper ('.swiper-slide', {
-    
     simulateTouch: true,
     slidesPerView: 'auto',
     loop: true,
@@ -145,43 +144,45 @@ if (supportsAudio) {
         extension = '',
         tracks = [{
             "track": 1,
-            "name": "Бессовестно счастливая",
-            "duration": "4:04",
-            "file": "bessovestno_schastlivaya",
-            "youtube": "https://www.youtube.com/watch?v=dKjgGiH00l4",
+            "name": "Какая дама пропадает",
+            "duration": "3:58",
+            "file": "kakayadama",
+            "youtube": "https://www.youtube.com/watch?v=J5w4XfAJe6U",
             "newlabel": "newlabel"
         }, {
             "track": 2,
-            "name": "Чао, персик",
-            "duration": "3:37",
-            "file": "chao_persik",
+            "name": "Бессовестно счастливая",
+            "duration": "04:14",
+            "file": "bessovestno",
+            "youtube": "https://www.youtube.com/watch?v=O2Sc5bDU4Rs",
             "newlabel": "oldlabel"
         }, {
             "track": 3,
-            "name": "Такая, как есть",
-            "duration": "3:59",
-            "file": "takaya_kak_est",
+            "name": "Одна на миллион",
+            "duration": "4:21",
+            "file": "odnanamillion",
+            "youtube": "https://www.youtube.com/watch?v=XO01W6Uaqk0",
             "newlabel": "oldlabel"
         }, {
             "track": 4,
-            "name": "Любовь не бывает",
-            "duration": "3:51",
-            "file": "lubov_ne_bivaet",
-            "youtube": "https://www.youtube.com/watch?v=Zu1ZR6m8AWs",
+            "name": "В личном пространстве",
+            "duration": "3:57",
+            "file": "vlichnom",
+            "youtube": "https://www.youtube.com/watch?v=SrjG_4XfVN0",
             "newlabel": "oldlabel"
         }, {
             "track": 5,
-            "name": "Какая дама пропадает",
-            "duration": "4:27",
-            "file": "kakaya_dama_propadaet",
-            "youtube": "https://www.youtube.com/watch?v=J5w4XfAJe6U",
+            "name": "Не дай мне уйти",
+            "duration": "3:53",
+            "file": "nedaymneuiti",
+            "youtube": "https://www.youtube.com/watch?v=z-QIo_utU-o",
             "newlabel": "oldlabel"
         }, {
             "track": 6,
-            "name": "В личном пространстве",
-            "duration": "3:59",
-            "file": "v_lichnom_prostranstve",
-            "youtube": "https://www.youtube.com/watch?v=SrjG_4XfVN0",
+            "name": "Настоящая",
+            "duration": "3:33",
+            "file": "nastoyashaya",
+            "youtube": "https://www.youtube.com/watch?v=Cul7tltpksg",
             "newlabel": "oldlabel"
         }],
         buildPlaylist = $(tracks).each(function(key, value) {

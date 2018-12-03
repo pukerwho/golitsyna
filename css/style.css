@@ -12634,12 +12634,15 @@ html.lb-disable-scrolling {
     position: relative;
     z-index: 9; }
   .slider__img {
-    top: auto;
+    top: -10px;
+    height: 100%;
     -webkit-filter: brightness(50%);
     filter: brightness(50%); }
     .slider__img img {
       width: 100%;
-      height: auto; }
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover; }
   .slider__bg {
     display: block;
     position: absolute;
