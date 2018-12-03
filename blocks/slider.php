@@ -37,4 +37,5 @@
 			</div>
 		</div>
 	</div>
+	<div class="slider__bg"></div>
 </div>

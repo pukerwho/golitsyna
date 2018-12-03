@@ -10360,6 +10360,9 @@ button.swiper-pagination-bullet {
     -moz-border-radius: 30px;
     -webkit-border-radius: 30px;
     padding: 20px 60px; }
+.slider__bg {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.51); }
 
 .swiper-container .swiper-slide-button-next, .swiper-container .swiper-slide-button-prev {
   position: absolute;
@@ -11531,6 +11534,7 @@ audio {
 
 #mainwrap {
   border: 1px solid #9E9E9E;
+  -webkit-box-shadow: 0px 2px 10px 0px #9E9E9E;
   box-shadow: 0px 2px 10px 0px #9E9E9E; }
 
 #audiowrap,
@@ -11572,27 +11576,44 @@ audio {
   background-color: rgba(0, 0, 0, 0.1); }
 
 .pldownload {
-  padding: 0px 15px 0px 15px; }
+  position: absolute;
+  right: 21px;
+  top: 0; }
   .pldownload a {
     color: #212529; }
   .pldownload:hover a {
     color: #3caffb; }
 
 .plyoutube {
-  padding: 0px 0px 0px 15px; }
+  position: absolute;
+  right: 47px;
+  top: 0; }
   .plyoutube a {
     color: #212529; }
   .plyoutube:hover a {
     color: #ff0000; }
 
+.plLabel.newlabel {
+  color: #ffffff;
+  background-color: #3caffb;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  margin-left: 21px;
+  padding: 5px 7px; }
+
+.plLabel.oldlabel {
+  display: none; }
+
 .plItem {
-  position: relative; }
+  position: relative;
+  padding-left: 21px; }
 
 .plTitle {
   left: 0;
   overflow: hidden;
   position: relative;
   right: 0;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   top: 0;
   white-space: nowrap; }
@@ -11603,7 +11624,7 @@ audio {
 .plLength {
   padding-left: 21px;
   position: absolute;
-  right: 21px;
+  right: 85px;
   top: 0; }
 
 .plSel,
@@ -11613,6 +11634,7 @@ audio {
   cursor: default !important; }
 
 #tracks a {
+  -webkit-border-radius: 3px;
   border-radius: 3px;
   color: black;
   cursor: pointer;
@@ -11623,6 +11645,8 @@ audio {
   margin: 0 5px 30px;
   padding: 10px;
   text-decoration: none;
+  -webkit-transition: background .3s ease;
+  -o-transition: background .3s ease;
   transition: background .3s ease; }
 
 #tracks a:last-child {
@@ -12576,6 +12600,9 @@ html.lb-disable-scrolling {
   .mobile-show {
     display: block !important; }
 
+  section {
+    overflow: hidden; }
+
   .header__content-mobile {
     display: -webkit-box;
     display: -webkit-flex;
@@ -12595,9 +12622,32 @@ html.lb-disable-scrolling {
     padding: 0.5rem 0rem; }
 
   .slider__title {
-    font-size: 2rem; }
+    position: relative;
+    color: #ffffff;
+    font-size: 2rem;
+    z-index: 9; }
+  .slider__description {
+    position: relative;
+    color: #ffffff;
+    z-index: 9; }
+  .slider__button {
+    position: relative;
+    z-index: 9; }
   .slider__img {
-    display: none; }
+    top: auto;
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%); }
+    .slider__img img {
+      width: 100%;
+      height: auto; }
+  .slider__bg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.51); }
 
   .photoalbum__grid {
     -ms-grid-columns: 1fr [3];

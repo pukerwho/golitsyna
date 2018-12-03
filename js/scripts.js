@@ -87,10 +87,8 @@ if ($(document).width() > 960) {
 
 if ($(document).width() < 960) {
   var mySwiperSlide = new Swiper ('.swiper-slide', {
-    pagination: {
-        el: '.swiper-slide-pagination',
-        clickable: true,
-    },
+    
+    simulateTouch: true,
     slidesPerView: 'auto',
     loop: true,
     autoplay: {
@@ -150,35 +148,41 @@ if (supportsAudio) {
             "name": "Бессовестно счастливая",
             "duration": "4:04",
             "file": "bessovestno_schastlivaya",
-            "youtube": "https://www.youtube.com/watch?v=dKjgGiH00l4" 
+            "youtube": "https://www.youtube.com/watch?v=dKjgGiH00l4",
+            "newlabel": "newlabel"
         }, {
             "track": 2,
             "name": "Чао, персик",
             "duration": "3:37",
-            "file": "chao_persik"
+            "file": "chao_persik",
+            "newlabel": "oldlabel"
         }, {
             "track": 3,
             "name": "Такая, как есть",
             "duration": "3:59",
-            "file": "takaya_kak_est"
+            "file": "takaya_kak_est",
+            "newlabel": "oldlabel"
         }, {
             "track": 4,
             "name": "Любовь не бывает",
             "duration": "3:51",
             "file": "lubov_ne_bivaet",
-            "youtube": "https://www.youtube.com/watch?v=Zu1ZR6m8AWs" 
+            "youtube": "https://www.youtube.com/watch?v=Zu1ZR6m8AWs",
+            "newlabel": "oldlabel"
         }, {
             "track": 5,
             "name": "Какая дама пропадает",
             "duration": "4:27",
             "file": "kakaya_dama_propadaet",
-            "youtube": "https://www.youtube.com/watch?v=J5w4XfAJe6U"
+            "youtube": "https://www.youtube.com/watch?v=J5w4XfAJe6U",
+            "newlabel": "oldlabel"
         }, {
             "track": 6,
             "name": "В личном пространстве",
             "duration": "3:59",
             "file": "v_lichnom_prostranstve",
-            "youtube": "https://www.youtube.com/watch?v=SrjG_4XfVN0"
+            "youtube": "https://www.youtube.com/watch?v=SrjG_4XfVN0",
+            "newlabel": "oldlabel"
         }],
         buildPlaylist = $(tracks).each(function(key, value) {
             var trackNumber = value.track,
@@ -186,16 +190,18 @@ if (supportsAudio) {
                 trackDuration = value.duration;
                 trackUrl = value.file;
                 trackYoutube = value.youtube;
+                trackNewLabel = value.newlabel;
             if (trackNumber.toString().length === 1) {
                 trackNumber = '0' + trackNumber;
             }
             $('#plList').append('<li> \
                 <div class="plItem"> \
-                    <span class="plyoutube"><a href="' + trackYoutube +'" target="_blank"><i class="fab fa-youtube"></i></a></span> \
-                    <span class="pldownload"><a href="' + mediaPath + trackUrl +'.mp3" download><i class="fas fa-download"></i></a></span> \
                     <span class="plNum">' + trackNumber + '.</span> \
                     <span class="plTitle">' + trackName + '</span> \
+                    <span class="plLabel ' + trackNewLabel + '"> Новинка </span> \
                     <span class="plLength">' + trackDuration + '</span> \
+                    <span class="plyoutube"><a href="' + trackYoutube +'" target="_blank"><i class="fab fa-youtube"></i></a></span> \
+                    <span class="pldownload"><a href="' + mediaPath + trackUrl +'.mp3" download><i class="fas fa-download"></i></a></span> \
                 </div> \
             </li>');
         }),
