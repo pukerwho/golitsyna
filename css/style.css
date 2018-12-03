@@ -12603,6 +12603,9 @@ html.lb-disable-scrolling {
   section {
     overflow: hidden; }
 
+  #content {
+    padding-top: 52px; }
+
   .header__content-mobile {
     display: -webkit-box;
     display: -webkit-flex;
@@ -12621,6 +12624,9 @@ html.lb-disable-scrolling {
     text-transform: uppercase;
     padding: 0.5rem 0rem; }
 
+  .slider .swiper-slide {
+    height: -webkit-calc(100vh - 52px);
+    height: calc(100vh - 52px); }
   .slider__title {
     position: relative;
     color: #ffffff;
@@ -12634,7 +12640,7 @@ html.lb-disable-scrolling {
     position: relative;
     z-index: 9; }
   .slider__img {
-    top: -10px;
+    bottom: 0px;
     height: 100%;
     -webkit-filter: brightness(50%);
     filter: brightness(50%); }
@@ -12653,10 +12659,13 @@ html.lb-disable-scrolling {
     background-color: rgba(0, 0, 0, 0.51); }
 
   .photoalbum__grid {
-    -ms-grid-columns: 1fr [3];
-    grid-template-columns: repeat(3, 1fr); }
+    max-width: 95%;
+    -ms-grid-columns: 1fr [2];
+    grid-template-columns: repeat(2, 1fr); }
     .photoalbum__grid__item {
-      height: 110px; }
+      height: 150px; }
+  .photoalbum__gallery__close {
+    top: 58px; }
 
   .biography__one, .biography__two {
     text-align: justify; }
@@ -12674,12 +12683,21 @@ html.lb-disable-scrolling {
       font-size: 1rem; }
   .afisha .ticket > .d-flex {
     margin-bottom: 1.5rem; }
+  .afisha .ticket__grid {
+    max-width: 95%; }
+  .afisha .ticket__info__close {
+    top: 58px; }
 
   .radio__grid {
     -ms-grid-columns: 1fr [2];
     grid-template-columns: repeat(2, 1fr); }
 
   .subscribe input {
-    width: 100%; } }
+    width: 100%; }
+
+  #listen .plItem {
+    font-size: 4vw; }
+  #listen .plLength {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */
