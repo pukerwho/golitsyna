@@ -152,7 +152,7 @@ if (supportsAudio) {
         }, {
             "track": 2,
             "name": "Бессовестно счастливая",
-            "duration": "04:14",
+            "duration": "4:14",
             "file": "bessovestno",
             "youtube": "https://www.youtube.com/watch?v=O2Sc5bDU4Rs",
             "newlabel": "oldlabel"
