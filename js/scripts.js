@@ -152,7 +152,7 @@ if (supportsAudio) {
         }, {
             "track": 2,
             "name": "Бессовестно счастливая",
-            "duration": "4:14",
+            "duration": "4:13",
             "file": "bessovestno",
             "youtube": "https://www.youtube.com/watch?v=O2Sc5bDU4Rs",
             "newlabel": "oldlabel"
@@ -180,7 +180,7 @@ if (supportsAudio) {
         }, {
             "track": 6,
             "name": "Настоящая",
-            "duration": "3:33",
+            "duration": "3:32",
             "file": "nastoyashaya",
             "youtube": "https://www.youtube.com/watch?v=Cul7tltpksg",
             "newlabel": "oldlabel"
