@@ -6,7 +6,7 @@
     				<div class="footer__col">
     					<h3 class="text-uppercase">Организация гастролей</h3>
     					<div class="footer__col__info">
-    						<i class="fas fa-phone"></i> <a href="tel:+7 (915) 499-01-9">+7 (915) 499-01-9</a>
+    						<i class="fas fa-phone"></i> <a href="tel:+7 (915) 499-01-9">+7 (915) 499-01-91</a>
     					</div>
     				</div>
     			</div>
@@ -46,9 +46,9 @@
     			</div>
     			<div class="col-md-4">
     				<div class="footer__col">
-    					<h3 class="text-uppercase">Подпишитесь на новости</h3>
+    					<h3 class="text-uppercase">Социальные сети</h3>
     					<div class="">
-    						<div class="subscribe mb-5"><?php echo do_shortcode('[contact-form-7 id="72" title="Рассылка"]'); ?></div>
+    						<!-- <div class="subscribe mb-5"><?php echo do_shortcode('[contact-form-7 id="72" title="Рассылка"]'); ?></div> -->
     						<div class="social d-flex">
     							<!-- Facebook -->
     							<li>

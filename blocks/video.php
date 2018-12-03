@@ -27,7 +27,7 @@
 		<div class="row mb-5">
 			<div class="col-md-12">
 				<div class="morebutton">
-					<a href="https://www.youtube.com/channel/UCOA68HRE0i7Od3QkHsjv7zw" target="_blank">
+					<a href="https://www.youtube.com/user/GolitsynaKate/?sub_confirmation=1" target="_blank">
 						<div class="morebutton__inner">
 							Смотреть все видео
 						</div>	

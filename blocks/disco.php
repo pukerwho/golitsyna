@@ -23,10 +23,10 @@
 						</div>
 						<div class="buttons pb-4">
 							<div class="buttons__dark">
-								<a href="<?php echo rwmb_meta( 'meta-disco-itunes-link' ); ?>">iTunes</a>
+								<a href="<?php echo rwmb_meta( 'meta-disco-itunes-link' ); ?>" target="_blank">iTunes</a>
 							</div>
 							<div class="buttons__light">
-								<a href="<?php echo rwmb_meta( 'meta-disco-playmarket-link' ); ?>">Play Market</a>
+								<a href="<?php echo rwmb_meta( 'meta-disco-playmarket-link' ); ?>" target="_blank">Play Market</a>
 							</div>
 						</div>
 					</div>
