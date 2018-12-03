@@ -26,9 +26,6 @@
 	          	</div>
 	          <?php endwhile; endif; ?>
 			    </div>
-			    <div class="mobile-show">
-			    	<div class="swiper-pagination swiper-slide-pagination"></div>	
-			    </div>
 			    <div class="pc-show">
 				    <div class="swiper-button-next swiper-slide-button-next"></div>
 		      	<div class="swiper-button-prev swiper-slide-button-prev"></div>	

@@ -138,6 +138,13 @@
     		</div>
     	</div>
     </div>
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
+
+    <!-- VK Widget -->
+    <div id="vk_community_messages"></div>
+    <script type="text/javascript">
+    VK.Widgets.CommunityMessages("vk_community_messages", 55880087, {expanded: "1",tooltipButtonText: "Есть вопрос?"});
+    </script>
     <?php wp_footer(); ?>
 </body>
 </html>
