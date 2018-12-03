@@ -143,7 +143,7 @@
     <!-- VK Widget -->
     <div id="vk_community_messages"></div>
     <script type="text/javascript">
-    VK.Widgets.CommunityMessages("vk_community_messages", 55880087, {expanded: "1",tooltipButtonText: "Есть вопрос?"});
+    VK.Widgets.CommunityMessages("vk_community_messages", 55880087, {tooltipButtonText: "Есть вопрос?"});
     </script>
     <?php wp_footer(); ?>
 </body>
