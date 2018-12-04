@@ -9397,7 +9397,9 @@ input, [type="submit"] {
         width: 100%;
         height: 100%;
         -o-object-fit: cover;
-        object-fit: cover; }
+        object-fit: cover;
+        -o-object-position: top;
+        object-position: top; }
   .photoalbum__gallery {
     display: none;
     z-index: 999; }
@@ -9454,6 +9456,8 @@ input, [type="submit"] {
       height: 100%;
       -o-object-fit: cover;
       object-fit: cover;
+      -o-object-position: top;
+      object-position: top;
       -webkit-transition: all 0.4s;
       -o-transition: all 0.4s;
       transition: all 0.4s; }
