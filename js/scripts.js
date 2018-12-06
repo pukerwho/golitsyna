@@ -253,10 +253,14 @@ if (supportsAudio) {
                 loadTrack(index);
             }
         }),
-        li = $('#plList li').on('click', function () {
-            var id = parseInt($(this).index());
-            if (id !== index) {
-                playTrack(id);
+        li = $('#plList li').on('click', function (e) {
+            e.stopPropagation();
+            
+            if (!e.target.matches('.fa-youtube')) {
+                var id = parseInt($(this).index());
+                if (id !== index) {
+                    playTrack(id);
+                }
             }
         }),
         loadTrack = function (id) {
