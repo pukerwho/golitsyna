@@ -140,7 +140,7 @@ if (supportsAudio) {
   // initialize playlist and controls
     var index = 0,
         playing = false,
-        mediaPath = 'https://golitsyna.timeto.top/',
+        mediaPath = 'https://golitsyna.ru/',
         extension = '',
         tracks = [{
             "track": 1,
