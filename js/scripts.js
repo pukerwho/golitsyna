@@ -148,7 +148,7 @@ if (supportsAudio) {
             "duration": "3:58",
             "file": "kakayadama",
             "youtube": "https://www.youtube.com/watch?v=J5w4XfAJe6U",
-            "newlabel": "newlabel"
+            "newlabel": "oldlabel"
         }, {
             "track": 2,
             "name": "Бессовестно счастливая",
