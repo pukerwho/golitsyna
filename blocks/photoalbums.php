@@ -38,8 +38,9 @@
 						<?php 
 							$images = rwmb_meta( 'meta-images', array( 'size' => 'large' ) );
 							$title_img = get_the_title();
+							$id_img = get_the_id();
 							foreach ( $images as $image ) {
-							    echo '<div class="photoalbum__grid__item"><a href="', $image['full_url'], '" data-lightbox="', $title_img,'" data-title="', $title_img,'"><img src="', $image['url'], '"></a></div>';
+							    echo '<div class="photoalbum__grid__item"><a href="', $image['full_url'], '" data-lightbox="', $id_img,'" data-title="', $title_img,'"><img src="', $image['url'], '"></a></div>';
 							} 
 						?>
 					</div>
