@@ -21,7 +21,7 @@
 		          		</div>	
 	          		</div>
 	          		<div class="slider__img">
-	          			<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">	
+	          			<img data-src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">	
 	          		</div>
 	          	</div>
 	          <?php endwhile; endif; ?>

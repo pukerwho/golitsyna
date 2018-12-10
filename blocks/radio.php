@@ -13,7 +13,7 @@
 			  $custom_query = new WP_Query( array( 'post_type' => 'radio', 'posts_per_page' => 15, 'orderby' => 'menu_order') );
 			  if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
 					<div class="radio__item">
-						<a href="<?php echo rwmb_meta( 'meta-radio-link' ); ?>" target="_blank"><img src="<?php echo get_the_post_thumbnail_url(); ?>" alt=""></a>
+						<a href="<?php echo rwmb_meta( 'meta-radio-link' ); ?>" target="_blank"><img data-src="<?php echo get_the_post_thumbnail_url(); ?>" alt=""></a>
 					</div>
 				<?php endwhile; endif; ?>
 			</div>
