@@ -51,6 +51,7 @@ add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 function theme_name_scripts() {
     wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js');
+    wp_enqueue_script( 'myscripts', get_template_directory_uri() . '/js/scripts.js','','',true);
     wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js','','',true);
     wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/lightbox.min.js','','',true);
     wp_enqueue_script( 'htmlmedia', get_template_directory_uri() . '/js/html5media.min.js','','',true);
@@ -59,7 +60,6 @@ function theme_name_scripts() {
     wp_register_script( 'loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array('jquery') );
     wp_register_script( 'loadmore__afisha', get_stylesheet_directory_uri() . '/js/loadmore__afisha.js', array('jquery') );
     wp_register_script( 'loadmore__disco', get_stylesheet_directory_uri() . '/js/loadmore__disco.js', array('jquery') );
-    wp_register_script( 'myscripts', get_template_directory_uri() . '/js/scripts.js');
 
     wp_localize_script( 'loadmore', 'loadmore_params', array(
         'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
@@ -85,7 +85,6 @@ function theme_name_scripts() {
     wp_enqueue_script( 'loadmore');
     wp_enqueue_script( 'loadmore__afisha');
     wp_enqueue_script( 'loadmore__disco');
-    wp_enqueue_script( 'myscripts' );
 };
 
 //подключаем стили к админке
