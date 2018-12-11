@@ -15,7 +15,8 @@
 	          $custom_query = new WP_Query( array( 'post_type' => 'videos' ) );
 	          if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
 	          	<div class="swiper-slide">
-	          		<iframe width="100%" height="300" src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'meta-video-iframe' ); ?>?showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	          		<!-- <iframe width="100%" height="300" src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'meta-video-iframe' ); ?>?showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+	          		<div class="youtube-player" data-id="<?php echo rwmb_meta( 'meta-video-iframe' ); ?>"></div>
 	          	</div>
 	          <?php endwhile; endif; ?>
 			    </div>
