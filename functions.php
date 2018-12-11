@@ -82,9 +82,9 @@ function theme_name_scripts() {
         'max_page' => $custom_query_disco->max_num_pages
     ) );
  
-    wp_enqueue_script( 'loadmore', true );
-    wp_enqueue_script( 'loadmore__afisha', true );
-    wp_enqueue_script( 'loadmore__disco', true );
+    wp_enqueue_script( 'loadmore', ,'','',true);
+    wp_enqueue_script( 'loadmore__afisha', ,'','',true);
+    wp_enqueue_script( 'loadmore__disco', ,'','',true);
     wp_enqueue_script( 'myscripts' );
 };
 
