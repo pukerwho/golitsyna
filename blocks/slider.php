@@ -10,7 +10,7 @@
 	          	<div class="swiper-slide d-flex align-items-center">
 	          		<div class="offset-md-1 col-md-6">
 		          		<div class="slider__title mb-4">
-		          			<?php the_title(); ?>
+		          			<?php echo str_replace(' | ', '<br />', get_the_title()); ?>
 		          		</div>
 		          		<div class="slider__description mb-4">
 		          			<?php echo rwmb_meta( 'meta-slider-description' ); ?>
