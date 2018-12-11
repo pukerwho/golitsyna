@@ -20,7 +20,7 @@
 		</div>
 		<div class="col-md-3 pc-show">
 			<div class="biography__img" data-aos="fade-left" data-aos-anchor-placement="center-bottom" data-aos-duration="1000" data-aos-delay="1300">
-				<img data-src="<?php bloginfo('template_url'); ?>/img/biography_img.jpg" alt="">
+				<img src="<?php bloginfo('template_url'); ?>/img/biography_img.jpg" alt="">
 			</div>			
 		</div>
 	</div>

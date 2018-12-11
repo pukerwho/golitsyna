@@ -15,7 +15,7 @@
 	  	<div class="col-md-3 mb-4">
 				<div class="photoalbum" data-aos="fade-right" data-aos-anchor-placement="center-bottom" data-aos-duration="1000">
 					<div class="photoalbum__img">
-						<img data-src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+						<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
 					</div>
 					<div class="photoalbum__bg"></div>
 					<div class="photoalbum-info">
@@ -40,7 +40,7 @@
 							$title_img = get_the_title();
 							$id_img = get_the_id();
 							foreach ( $images as $image ) {
-							    echo '<div class="photoalbum__grid__item"><a href="', $image['full_url'], '" data-lightbox="', $id_img,'" data-title="', $title_img,'"><img data-src="', $image['url'], '"></a></div>';
+							    echo '<div class="photoalbum__grid__item"><a href="', $image['full_url'], '" data-lightbox="', $id_img,'" data-title="', $title_img,'"><img src="', $image['url'], '"></a></div>';
 							} 
 						?>
 					</div>
