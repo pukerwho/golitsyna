@@ -32,7 +32,7 @@ function enqueueTheThemeScriptsAndStyles() {
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.css' );
 
 	// Default js of your theme to add your own js scripts, add dependances if needed
-	wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/js/scripts.js' , array( 'jquery' ), '1.0', true);
+	// wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/js/scripts.js' , array( 'jquery' ), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueueTheThemeScriptsAndStyles');
 
@@ -65,7 +65,7 @@ function registerJqueryFromCdn() {
 	wp_deregister_script( 'jquery-ui-widget' );
 	wp_deregister_script( 'jquery' );
 
-	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3' );
+	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', true );
 	wp_register_script( 'jquery-ui-core', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js', array( 'jquery' ), '1.11.4', true);
 }
 add_action('wp_head', 'registerJqueryFromCdn', 1 );
