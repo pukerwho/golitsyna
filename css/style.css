@@ -13099,7 +13099,7 @@ html.lb-disable-scrolling {
   -webkit-transform: perspective(2500px) rotateX(0);
   transform: perspective(2500px) rotateX(0); }
 
-@media (max-width: 760px) {
+@media (max-width: 769px) {
   .pc-show {
     display: none !important; }
 
@@ -13210,5 +13210,29 @@ html.lb-disable-scrolling {
   #listen .plLabel.newlabel {
     display: table;
     margin-top: 15px; } }
+@media (max-width: 1025px) {
+  .pc-show {
+    display: none !important; }
+
+  .mobile-show {
+    display: block !important; }
+
+  .header__content-mobile {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 0.5rem 0rem; } }
 
 /*# sourceMappingURL=style.css.map */
