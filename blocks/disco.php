@@ -12,7 +12,7 @@
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			  $custom_query_disco = new WP_Query( array( 'post_type' => 'disco', 'posts_per_page' => 4, 'orderby' => 'menu_order' ) );
 			  if ($custom_query_disco->have_posts()) : while ($custom_query_disco->have_posts()) : $custom_query_disco->the_post(); ?>
-				<div class="col-md-3 mb-4">
+				<div class="col-sm-6 col-lg-3 mb-4">
 					<div class="disc">
 						<div class="disc__img mb-4" style="background: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
 						<div class="disc__title text-uppercase font-weight-bold text-center mb-4">
